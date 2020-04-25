@@ -11,7 +11,7 @@ class CandidatesController < ApplicationController
   end
   
   def create
-    @candidate = Candidate.new(post_params);
+    @candidate = Candidate.new(candidate_params);
     if @candidate.save
       redirect_to @candidate
     else
@@ -26,7 +26,7 @@ class CandidatesController < ApplicationController
   end
   
   def update
-    if @candidate.update(post_params)
+    if @candidate.update(candidate_params)
       redirect_to @candidate
     else
       render 'edit'
@@ -45,7 +45,7 @@ class CandidatesController < ApplicationController
   end
   
   # For security purpose and what attrs are supposed to be saved to our model
-  def post_params
+  def candidate_params
     params.require(:candidate).permit(:name, :phone, :city, :comment)
   end
 end

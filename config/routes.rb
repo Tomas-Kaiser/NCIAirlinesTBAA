@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :skills
   end
   
-  resources :candidates
+  resources :candidates do
+    resources :skills
+  end
   resources :sessions, only: [:new, :create, :destroy]
   
   

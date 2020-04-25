@@ -3,6 +3,27 @@
 <p>City: <%= @candidate.city %></p>
 <p>Comment: <%= @candidate.comment %></p>
 
+<h3>Skill</h3>
+<% @candidate.skills.each do |skill| %>
+    <p><%= skill.name %></p>
+    <p><%= skill.experience %></p>
+    <p><%= skill.typeOfSkill %></p>
+<% end %>
+
+<h3>Add skill</h3>
+<%= form_for ([@candidate, @candidate.skills.build]) do |f| %>
+    <%= f.label :name %> <br />
+    <%= f.text_field :name %> <br />
+    <br />
+    <%= f.label :experience %> <br />
+    <%= f.text_field :experience %> <br />
+    <br />
+    <%= f.label :typeOfSkill %> <br />
+    <%= f.text_field :typeOfSkill %> <br />
+    <br />
+    <%= f.submit %>
+<% end %>
+
 <%= link_to "Edit Candidate", edit_candidate_path(@candidate) %>
 <%= link_to "Delete", candidate_path(@candidate), method: :delete, data: { confirm: "Are you sure?" } %>
 <%= link_to "Back to All Candidates", candidates_path %>
