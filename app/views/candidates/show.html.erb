@@ -1,0 +1,7 @@
+<h1>Candidate <%= @candidate.name %></h1>
+<p>Phone number: <%= @candidate.phone %></p>
+<p>City: <%= @candidate.city %></p>
+<p>Comment: <%= @candidate.comment %></p>
+
+<%= link_to "Edit Candidate", edit_candidate_path(@candidate) %>
+<%= link_to "Delete", candidate_path(@candidate), method: :delete, data: { confirm: "Are you sure?" } %>

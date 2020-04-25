@@ -1,0 +1,11 @@
+<h1>Candidates</h1>
+
+<% @candidates.each do |candidate| %>
+    <p>Name: <%= candidate.name %></p>
+    <p>Phone num: <%= candidate.phone %></p>
+    <p>City: <%= candidate.city %></p>
+    <p>Comment: <%= truncate(candidate.comment, :length => 20) %></p>
+    <%= link_to "Read More", candidate %>
+    <br />
+    <br />
+<% end %>

@@ -1,0 +1,16 @@
+<%= form_for @candidate do |f| %>
+    <%= f.label :name %> <br />
+    <%= f.text_field :name %> <br />
+    <br />
+    <%= f.label :phone %> <br />
+    <%= f.text_field :phone %> <br />
+    <br />
+    <%= f.label :city %> <br />
+    <%= f.text_field :city %> <br />
+    <br />
+    <br />
+    <%= f.label :comment %> <br />
+    <%= f.text_field :comment %> <br />
+    <br />
+    <%= f.submit %>
+<% end %>
