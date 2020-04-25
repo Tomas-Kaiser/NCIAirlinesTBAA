@@ -4,6 +4,7 @@ class CreateSkills < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :experience
       t.string :type
+      t.belongs_to :candidate
 
       t.timestamps
     end

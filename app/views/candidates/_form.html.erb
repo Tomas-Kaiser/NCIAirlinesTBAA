@@ -1,4 +1,10 @@
 <%= form_for @candidate do |f| %>
+    <% if @candidate.errors.any? %>
+        <% @candidate.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+        <% end %>
+    <% end %>
+    
     <%= f.label :name %> <br />
     <%= f.text_field :name %> <br />
     <br />

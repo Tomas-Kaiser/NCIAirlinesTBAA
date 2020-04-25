@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 2020_04_25_171627) do
     t.string "name"
     t.integer "experience"
     t.string "type"
+    t.integer "candidate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_skills_on_candidate_id"
   end
 
   create_table "users", force: :cascade do |t|
