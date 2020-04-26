@@ -1,30 +1,58 @@
-<h1>Candidate <%= @candidate.name %></h1>
-<p>Phone number: <%= @candidate.phone %></p>
-<p>City: <%= @candidate.city %></p>
-<p>Comment: <%= @candidate.comment %></p>
+<div class="card-container">
+    <div class="card" style="margin:auto">
+        <img src="https://ualr.edu/studentaffairs/files/2020/01/blank-picture-holder.png" alt="Avatar" style="width:100%">
+        <div class="content">
+            <p><b><%= @candidate.name %></b></p>
+            <p>Phone num: <%= @candidate.phone %></p>
+            <p>City: <%= @candidate.city %></p>
+            <p>Comment: <%= @candidate.comment %></p>
+        </div>
+        <div class="buttons">
+            <%= link_to "Edit Candidate", edit_candidate_path(@candidate) %>
+            <%= link_to "Delete", candidate_path(@candidate), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+    </div>
+</div>
 
-<h3>Skill</h3>
+<h3 style="margin-left: 50px">Candidate <%= @candidate.name %> has following skills:</h3>
+<div class="thead bg-gray">
+    <p class="item">Name</p>
+    <p class="item">Experience</p>
+    <p class="item">Type</p>
+    <p class="item">Action</p>
+</div>
+
+
 <% @candidate.skills.each do |skill| %>
-    <p><%= skill.name %></p>
-    <p><%= skill.experience %></p>
-    <p><%= skill.typeOfSkill %></p>
-    <%= link_to "[X]", [skill.candidate, skill], method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="thead bg-light-gray">
+    <p class="item"><%= skill.name %></p>
+    <p class="item"><%= skill.experience %></p>
+    <p class="item"><%= skill.typeOfSkill %></p>
+    <p class="item"><%= link_to "Edit", edit_user_skill(skill) %> <%= link_to "[X]", [skill.candidate, skill], method: :delete, data: { confirm: "Are you sure?" } %></p>
+</div>
 <% end %>
 
-<h3>Add skill</h3>
-<%= form_for ([@candidate, @candidate.skills.build]) do |f| %>
-    <%= f.label :name %> <br />
-    <%= f.text_field :name %> <br />
-    <br />
-    <%= f.label :experience %> <br />
-    <%= f.text_field :experience %> <br />
-    <br />
-    <%= f.label :typeOfSkill %> <br />
-    <%= f.text_field :typeOfSkill %> <br />
-    <br />
-    <%= f.submit %>
-<% end %>
+<div class="registration-form">
+  <header>
+    <h3>Add skill</h3>
+  </header>
 
-<%= link_to "Edit Candidate", edit_candidate_path(@candidate) %>
-<%= link_to "Delete", candidate_path(@candidate), method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Back to All Candidates", candidates_path %>
+    <%= form_for ([@candidate, @candidate.skills.build]) do |f| %>
+    <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <div class="field">
+            <%= f.label :experience %>
+            <%= f.text_field :experience %>
+        </div>
+        <div class="field">
+            <%= f.label :typeOfSkill %>
+            <%= f.text_field :typeOfSkill %>
+        </div>
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>
+

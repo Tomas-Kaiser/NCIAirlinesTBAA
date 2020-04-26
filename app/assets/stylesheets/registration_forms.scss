@@ -1,0 +1,23 @@
+.registration-form {
+    width: 350px;
+    text-align: center;
+    margin: 50px auto;
+    border: 1px solid black;
+    border-radius: 12px;
+    
+    header {
+        height: 50px;
+        background-color: #676a72;
+        color: #eee09b;
+        margin-bottom: 25px;
+        border-radius: 12px 12px 0 0;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        h1 {
+            margin: 0;
+        }
+    }
+}

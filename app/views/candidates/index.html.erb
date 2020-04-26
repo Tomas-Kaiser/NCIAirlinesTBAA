@@ -1,13 +1,25 @@
 <h1>Candidates</h1>
 
-<% @candidates.each do |candidate| %>
-    <p>Name: <%= candidate.name %></p>
-    <p>Phone num: <%= candidate.phone %></p>
-    <p>City: <%= candidate.city %></p>
-    <p>Comment: <%= truncate(candidate.comment, :length => 20) %></p>
-    <%= link_to "Read More", candidate %>
-    <br />
-    <br />
-<% end %>
-
 <%= link_to "Create Candidate", new_candidate_path %>
+
+<div class="card-container">
+    <% @candidates.each do |candidate| %>
+    <div class="card">
+        <img src="https://ualr.edu/studentaffairs/files/2020/01/blank-picture-holder.png" alt="Avatar" style="width:100%">
+        <div class="content">
+            <p><b><%= candidate.name %></b></p>
+            <p>Phone num: <%= candidate.phone %></p>
+            <p>City: <%= candidate.city %></p>
+            <p>Comment: <%= truncate(candidate.comment, :length => 20) %></p>
+        </div>
+        <div class="buttons">
+            <%= link_to "Read More", candidate %>
+            <%= link_to "Edit Candidate", edit_candidate_path(candidate) %>
+            <%= link_to "Delete", candidate_path(candidate), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+    </div>
+    <% end %>
+</div>   
+
+
+

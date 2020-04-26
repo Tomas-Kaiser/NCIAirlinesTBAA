@@ -1,0 +1,42 @@
+header {
+    .welcome-msg {
+        h2 {
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            left: 50%;
+            color: #eee09b;
+            font-size: 2em;
+        }
+    }
+    
+    nav {
+        margin: 0;
+        height: 50px;
+        background-color: #eee09b;
+        
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          
+            li {
+                float: left;
+                
+                a {
+                    display: block;
+                    color: black !important;
+                    text-align: center;
+                    padding: 16px 16px;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        background-color: #595b5f;
+                        color: white !important;
+                    }
+                }
+            }
+        }
+    }
+}

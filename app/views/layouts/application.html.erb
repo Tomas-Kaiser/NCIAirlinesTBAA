@@ -10,6 +10,29 @@
   </head>
 
   <body>
+    <header>
+      <div class="bg">
+        <img src="https://images.pexels.com/photos/587063/pexels-photo-587063.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></img>
+      </div>
+      <nav>
+        <ul>
+          <% if current_user %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "See Candidates", candidates_path %></li>
+            <li style="float:right"><%= link_to "Log Out", logout_path %></li>
+          <% else %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Log In", login_path %></li>
+            <li><%= link_to "Sign Up", signup_path %></li> 
+        <% end %>
+        </ul>
+      </nav>
+      
+    <div class="welcome-msg">
+      <h2>Recruiter 4 Airlines</h2>
+    </div>
+    </header>
+    
     <%= yield %>
   </body>
 </html>
