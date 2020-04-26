@@ -13,6 +13,9 @@ class SkillsController < ApplicationController
         redirect_to candidate_path(@candidate)
     end
     
+    def show
+    end
+    
     private
     # For security purpose and what attrs are supposed to be saved to our model
     def skill_params

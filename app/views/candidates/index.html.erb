@@ -1,6 +1,8 @@
 <h1>Candidates</h1>
 
-<%= link_to "Create Candidate", new_candidate_path %>
+<div class="add-candidate-btn">
+    <%= link_to "Create Candidate", new_candidate_path, :class => "btn" %>    
+</div>
 
 <div class="card-container">
     <% @candidates.each do |candidate| %>
@@ -8,14 +10,14 @@
         <img src="https://ualr.edu/studentaffairs/files/2020/01/blank-picture-holder.png" alt="Avatar" style="width:100%">
         <div class="content">
             <p><b><%= candidate.name %></b></p>
-            <p>Phone num: <%= candidate.phone %></p>
-            <p>City: <%= candidate.city %></p>
-            <p>Comment: <%= truncate(candidate.comment, :length => 20) %></p>
+            <p><b>Phone num:</b> <%= candidate.phone %></p>
+            <p><b>City:</b> <%= candidate.city %></p>
+            <p><b>Comment:</b> <%= truncate(candidate.comment, :length => 20) %></p>
         </div>
         <div class="buttons">
-            <%= link_to "Read More", candidate %>
-            <%= link_to "Edit Candidate", edit_candidate_path(candidate) %>
-            <%= link_to "Delete", candidate_path(candidate), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to "See Details", candidate, :class => "btn" %>
+            <%= link_to "Edit", edit_candidate_path(candidate), :class => "btn" %>
+            <%= link_to "Delete", candidate_path(candidate), :class => "btn delete", method: :delete, data: { confirm: "Are you sure?" } %>
         </div>
     </div>
     <% end %>

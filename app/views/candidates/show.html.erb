@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container" style="margin-top: 50px;">
     <div class="card" style="margin:auto">
         <img src="https://ualr.edu/studentaffairs/files/2020/01/blank-picture-holder.png" alt="Avatar" style="width:100%">
         <div class="content">
@@ -8,8 +8,8 @@
             <p>Comment: <%= @candidate.comment %></p>
         </div>
         <div class="buttons">
-            <%= link_to "Edit Candidate", edit_candidate_path(@candidate) %>
-            <%= link_to "Delete", candidate_path(@candidate), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to "Edit Candidate", edit_candidate_path(@candidate), :class => "btn" %>
+            <%= link_to "Delete", candidate_path(@candidate), :class => "btn delete", method: :delete, data: { confirm: "Are you sure?" } %>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@
     <p class="item"><%= skill.name %></p>
     <p class="item"><%= skill.experience %></p>
     <p class="item"><%= skill.typeOfSkill %></p>
-    <p class="item"><%= link_to "Edit", edit_user_skill(skill) %> <%= link_to "[X]", [skill.candidate, skill], method: :delete, data: { confirm: "Are you sure?" } %></p>
+    <p class="item"><%= link_to "X", [skill.candidate, skill], method: :delete, data: { confirm: "Are you sure?" } %></p>
 </div>
 <% end %>
 
@@ -47,11 +47,11 @@
             <%= f.text_field :experience %>
         </div>
         <div class="field">
-            <%= f.label :typeOfSkill %>
+            <%= f.label :type %>
             <%= f.text_field :typeOfSkill %>
         </div>
         <div class="actions">
-            <%= f.submit %>
+            <%= f.submit "Add Skill", :class => "btn" %>
         </div>
     <% end %>
 </div>
