@@ -8,6 +8,7 @@
     <p><%= skill.name %></p>
     <p><%= skill.experience %></p>
     <p><%= skill.typeOfSkill %></p>
+    <%= link_to "[X]", [skill.candidate, skill], method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 
 <h3>Add skill</h3>
